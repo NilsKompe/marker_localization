@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/nils/jackal_ws/src/dynamic_object_jackal_slam/marker_localization/ml_detector/devel/setup.sh

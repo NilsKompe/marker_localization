@@ -1,0 +1,8 @@
+prefix=/home/nils/jackal_ws/src/dynamic_object_jackal_slam/marker_localization/ml_detector/devel
+
+Name: ml_detector
+Description: Description of ml_detector
+Version: 0.0.0
+Cflags: -I/home/nils/jackal_ws/src/dynamic_object_jackal_slam/marker_localization/ml_detector/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
