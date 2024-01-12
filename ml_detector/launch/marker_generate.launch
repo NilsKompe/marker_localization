@@ -5,4 +5,10 @@
 
 		<rosparam command="load" file="$(find ml_detector)/launch/board_config.yaml"/>
 	</node>
+	<node pkg="ml_detector" type="ml_rotate_image.py" name="ml_rotate_image" clear_params="true" output="screen">
+		<param name="output_directory" value="$(find ml_detector)/img/" type="str"/>
+
+		<rosparam command="load" file="$(find ml_detector)/launch/board_config.yaml"/>
+	</node>
+	
 </launch>

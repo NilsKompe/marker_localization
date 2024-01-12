@@ -332,7 +332,7 @@ class MarkerDetector {
 			//If we have a new camera header
 			if(cam_info_.header != msg->header) {
 				cam_info_ = *msg;
-
+				dist_coeffs_ = cv::Mat_<double>(cam_info_.D);
 				//XXX: Here we are relying on the definition that ROS and OpenCV are both expecting 1x5 vectors
 				cv::Mat_<double>(cam_info_.D).reshape(0,1).copyTo(dist_coeffs_);	//Create a 3xN matrix with the raw data and copy the data to the right location
 				//cv::Mat_<double>(cam_info_.D).reshape(1,0).copyTo(dist_coeffs_);	//Create a 3xN matrix with the raw data and copy the data to the right location
