@@ -8,10 +8,17 @@ full_path = "/home/nils/jackal_ws/src/dynamic_object_jackal_slam/marker_localiza
 # str(Path(full_path).parents[1])  # "path"
 # str(Path(full_path).parents[2]) 
 
-image = Image.open(str(Path(full_path).parents[0]) + "/img/board_0.png")
-
+image = Image.open(str(Path(full_path).parents[0]) + "/img/board_4.png")
+image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/board_4.png")
 rotated_image = image.rotate(180)
+rotated_image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/board_4_rotated.png")
 
-rotated_image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/apriltags-003.png")
-rotated_image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/apriltags-004.png")
-rotated_image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/apriltags-005.png")
+image = Image.open(str(Path(full_path).parents[0]) + "/img/board_0.png")
+image.save(str(Path(full_path).parents[2]) + "/gazebo_models/AruCo_Block_0/materials/textures/board_0.png")
+image = Image.open(str(Path(full_path).parents[0]) + "/img/board_1.png")
+image.save(str(Path(full_path).parents[2]) + "/gazebo_models/AruCo_Block_1/materials/textures/board_1.png")
+image = Image.open(str(Path(full_path).parents[0]) + "/img/board_2.png")
+image.save(str(Path(full_path).parents[2]) + "/gazebo_models/AruCo_Block_2/materials/textures/board_2.png")
+image = Image.open(str(Path(full_path).parents[0]) + "/img/board_3.png")
+image.save(str(Path(full_path).parents[2]) + "/gazebo_models/AruCo_Block_3/materials/textures/board_3.png")
+
