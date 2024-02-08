@@ -36,21 +36,21 @@ def transformPoint(msg):
             point_stamped.point.y = marker.pose.position.y
             point_stamped.point.z = marker.pose.position.z
             # print(point_stamped)
-            base_point = listener.transformPoint("jackal0/base_link", point_stamped)
+            base_point = listener.transformPoint("map", point_stamped)
             # base_point_marker_detection = MarkerDetection()
             # base_point_marker_detection.header = msg.header
             # base_point_marker_detection.markers = msg
-            msg.header.frame_id = "jackal0/base_link"
+            msg.header.frame_id = "map"
             marker.pose.position.x = base_point.point.x 
             marker.pose.position.y = base_point.point.y
             marker.pose.position.z = base_point.point.z
 
             pub_base_point.publish(msg)
-            rospy.loginfo("jackal0/front_camera_optical: (%.2f, %.2f. %.2f) -----> jackal0/base_link: (%.2f, %.2f, %.2f) at time %.2f",
+            rospy.loginfo("jackal0/front_camera_optical: (%.2f, %.2f. %.2f) -----> map: (%.2f, %.2f, %.2f) at time %.2f",
                 point_stamped.point.x, point_stamped.point.y, point_stamped.point.z,
                 base_point.point.x, base_point.point.y, base_point.point.z, base_point.header.stamp.to_sec())
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as ex:
-            rospy.logerr("Received an exception trying to transform a point from \"jackal0/front_camera_optical\" to \"jackal0/base_link\": %s", ex)
+            rospy.logerr("Received an exception trying to transform a point from \"jackal0/front_camera_optical\" to \"map\": %s", ex)
 
 if __name__ == '__main__':
     print("1")

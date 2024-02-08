@@ -25,4 +25,9 @@
 
 		<!--param name="image_transport" value="compressed"/-->
 	</node>
+	<node pkg="ml_detector" type="tf_broadcaster.py" name="tf_broadcaster" output="screen">
+	</node>
+
+	<node pkg="ml_detector" type="tf_listener.py" name="tf_listener" output="screen">
+	</node>
 </launch>

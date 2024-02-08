@@ -9,7 +9,7 @@ import geometry_msgs.msg
 import tf_conversions
 
 if __name__ == '__main__':
-    rospy.init_node('robot_tf_publisher')
+    rospy.init_node('tf_publisher')
     broadcaster = tf2_ros.TransformBroadcaster()
     rate = rospy.Rate(100)
 
@@ -23,10 +23,15 @@ if __name__ == '__main__':
         # t.transform.translation.z = 0.02450 + 0.302
         # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
 
-        # new solution using rosrun tf2_tools echo.py jackal0/front_camera_optical jackal0/base_link to get the transform values
-        t.transform.translation.x = 0.229
+        # new solution using rosrun tf2_tools echo.py jackal0/front_camera_optical jackal0/base_link to get the transform values:
+        # fist with mount enabled
+        # t.transform.translation.x = 0.229
+        # t.transform.translation.y = 0.0
+        # t.transform.translation.z = 0.216
+        # second with mount disabled
+        t.transform.translation.x = 0.12
         t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.216
+        t.transform.translation.z = 0.202
         t.transform.rotation.x = -0.5
         t.transform.rotation.y = 0.5
         t.transform.rotation.z = -0.5

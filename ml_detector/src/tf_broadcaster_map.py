@@ -2,30 +2,40 @@
 
 import rospy
 import tf
-from tf.transformations import quaternion_from_euler, euler_from_quaternion
+
 from geometry_msgs.msg import TransformStamped
 import tf2_ros
 import geometry_msgs.msg
 import tf_conversions
 
 if __name__ == '__main__':
-    rospy.init_node('robot_tf_publisher')
+    rospy.init_node('tf_publisher')
     broadcaster = tf2_ros.TransformBroadcaster()
     rate = rospy.Rate(100)
 
     while not rospy.is_shutdown():
         t = geometry_msgs.msg.TransformStamped()
         t.header.stamp = rospy.Time.now()
-        t.header.frame_id = 'jackal0/base_link'
+        t.header.frame_id  = 'map'
         t.child_frame_id = 'jackal0/front_camera_optical'
-        t.transform.translation.x = 0
-        t.transform.translation.y = 0.0
-        t.transform.translation.z = 0.2
-        q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
-        t.transform.rotation.x = q[0]
-        t.transform.rotation.y = q[1]
-        t.transform.rotation.z = q[2]
-        t.transform.rotation.w = q[3]
+        # t.transform.translation.x = 0.007 + 0.12 #first summmand: same values as in the file accessories.urdf.xacro and maybe jackal.urdf (transformation to the top of the jackal)
+        # t.transform.translation.y = 0.0 + 0.0 #second summand: values looked up in gazebo. Which file? (transformation to the 0 0 0 point of the base_link)
+        # t.transform.translation.z = 0.02450 + 0.302
+        # q = tf_conversions.transformations.quaternion_from_euler(0, 0, 0)
+
+        # new solution using rosrun tf2_tools echo.py jackal0/front_camera_optical jackal0/base_link to get the transform values:
+        # fist with mount enabled
+        # t.transform.translation.x = 0.229
+        # t.transform.translation.y = 0.0
+        # t.transform.translation.z = 0.216
+        # second with mount disabled
+        t.transform.translation.x = 0.135
+        t.transform.translation.y = -0.001
+        t.transform.translation.z = 0.202
+        t.transform.rotation.x = -0.499
+        t.transform.rotation.y = 0.501
+        t.transform.rotation.z = -0.501
+        t.transform.rotation.w = 0.499
         broadcaster.sendTransform(t)
         rate.sleep()
 
