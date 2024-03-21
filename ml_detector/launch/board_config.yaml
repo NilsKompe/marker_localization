@@ -8,19 +8,27 @@ board_config:
   # DICT_6X6_50, DICT_6X6_100, DICT_6X6_250, DICT_6X6_1000
   # DICT_7X7_50, DICT_7X7_100, DICT_7X7_250, DICT_7X7_1000
   # DICT_ARUCO_ORIGINAL
-  dictionary: DICT_5x5_50
+  dictionary: DICT_4x4_50
 
   # Sizes should be set to some factor of the output
   #  resolution when generating images
   # Sizes should reflect the real life marker sizes
   #  when detecting
-  marker_size: 0.087
-  marker_spacing: 0.017
+  # marker_size: 0.087 #values for creation
+  # marker_spacing: 0.017 
+  marker_size: 0.133203125 #values for detection with board size 0.3m in gazebo
+  marker_spacing: 0.02578125 #can be calculated by measuring the pixels of each board part and calculating their percentage of the total image. Then the percentage has to be multiplied with the size in gazebo.
+                        #e.g. image has 768x768 px, each marker has 341 px and space between markers is 66 px: marker_size = 341/768 * 0.3, marker_spacing = 66/768 * 0.3
+
+  # marker_size: 0.094 #working
+  # marker_spacing: 0.1 #working
 
   border_bits: 1
 
-  output_height: 480
-  output_width: 640
+  output_height: 768
+  output_width: 768
+  # output_height: 768
+  # output_width: 1024
 
 # Set board_id: -1 for these to be incrementally generated.
 # Boards should be organized by id (with -1's at tail of list)

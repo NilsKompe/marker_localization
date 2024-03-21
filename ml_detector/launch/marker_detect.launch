@@ -4,7 +4,7 @@
 		<!-- System Parameters -->
 		<param name="system/publish_overlay" value="true" type="boolean"/>
 		<param name="system/send_detailed_tag_info" value="true" type="boolean"/>
-		<param name="system/show_rejected" value="true" type="boolean"/>
+		<param name="system/show_rejected" value="false" type="boolean"/>
 		<param name="system/refine_strategy" value="true" type="boolean"/>
 		<param name="system/camera_is_rectified" value="false" type="boolean"/>
 
@@ -25,9 +25,12 @@
 
 		<!--param name="image_transport" value="compressed"/-->
 	</node>
-	<node pkg="ml_detector" type="tf_broadcaster.py" name="tf_broadcaster" output="screen">
-	</node>
+	<!-- <node pkg="ml_detector" type="tf_broadcaster.py" name="tf_broadcaster" output="screen"> -->
+	<!-- </node> -->
 
 	<node pkg="ml_detector" type="tf_listener.py" name="tf_listener" output="screen">
 	</node>
+	
+	<!-- <node pkg="tf2_ros" type="static_transform_publisher" name="link1_broadcaster" args="0.12 0 0.202 -0.5 0.5 -0.5 0.5 jackal0/base_link jackal0/front_camera_optical" /> -->
+	
 </launch>

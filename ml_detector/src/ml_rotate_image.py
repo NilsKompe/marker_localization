@@ -1,12 +1,11 @@
 #!/usr/bin/env python3.8
 from PIL import Image
 from pathlib import Path
+import pathlib
 
 
-full_path = "/home/nils/jackal_ws/src/dynamic_object_jackal_slam/marker_localization/ml_detector/src"
-# str(Path(full_path).parents[0])  # "path/to"
-# str(Path(full_path).parents[1])  # "path"
-# str(Path(full_path).parents[2]) 
+full_path = pathlib.Path(__file__).parent.resolve()
+
 
 image = Image.open(str(Path(full_path).parents[0]) + "/img/board_4.png")
 image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/multi_jackal_description/meshes/apriltags/images/board_4.png")
