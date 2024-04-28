@@ -8,7 +8,7 @@ board_config:
   # DICT_6X6_50, DICT_6X6_100, DICT_6X6_250, DICT_6X6_1000
   # DICT_7X7_50, DICT_7X7_100, DICT_7X7_250, DICT_7X7_1000
   # DICT_ARUCO_ORIGINAL
-  dictionary: DICT_4x4_50
+  dictionary: DICT_5X5_100
 
   # Sizes should be set to some factor of the output
   #  resolution when generating images
@@ -37,7 +37,7 @@ board_config:
 #  dictionary limit.
 boards:
   board_0:
-    id: -1
+    id: 1 #starting with id 1 for the board on top of Jackal1. Id 0 is always Jackal0 that does not require a board
     rows: 2
     cols: 2
     marker_ids: []
@@ -61,4 +61,69 @@ boards:
     rows: 2
     cols: 2
     marker_ids: []
-
+  board_5:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_6:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_7:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_8:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_9:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_10:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_11:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_12:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_13:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_14:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_15:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_16:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+  board_17:
+    id: -1
+    rows: 2
+    cols: 2
+    marker_ids: []
+ 

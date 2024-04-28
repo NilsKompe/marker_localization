@@ -9,3 +9,4 @@ int32[] tag_ids           # possible ids of the detected marker (empty if no id 
 float64[] tag_confidence  # confidence of the possible ids in 0 -> 1 (empty if no id could be identified)
 
 geometry_msgs/Pose pose   # pose of the detected marker/fiducial
+

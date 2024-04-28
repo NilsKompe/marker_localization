@@ -507,7 +507,6 @@ class MarkerDetector {
 
 int main(int argc, char** argv) {
 	ros::init(argc, argv, "ml_detector");
-	ROS_INFO("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111!!!11")
 	MarkerDetector md;
 	ros::spin();
 

@@ -55,6 +55,8 @@ int main(int argc, char *argv[]) {
 
     cv::Ptr<cv::aruco::Dictionary> dictionary =
         cv::aruco::getPredefinedDictionary(cv::aruco::PREDEFINED_DICTIONARY_NAME(dictionary_ids[dictionary_id]));	//TODO: params
+	
+	ROS_INFO("dictionary: ", dictionary)
 	ROS_INFO("Dictionary size: [%i]", dictionary->bytesList.rows);
 
 	if( !nh.getParam( "output_directory", output_directory ) ) {
