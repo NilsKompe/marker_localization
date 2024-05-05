@@ -8,7 +8,7 @@ import tf2_geometry_msgs.tf2_geometry_msgs
 
 class Listener:
     def __init__(self):
-        self.pub_base_point = rospy.Publisher("detected_markers_base_frame",MarkerDetection,queue_size=10)
+        self.pub_base_point = rospy.Publisher("ml_landmarks/detected_markers_base_frame",MarkerDetection,queue_size=10)
         self.sub = rospy.Subscriber('ml_landmarks/detected_markers',MarkerDetection, self.callback_transform_point)
         self.tfBuffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tfBuffer)

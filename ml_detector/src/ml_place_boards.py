@@ -21,5 +21,6 @@ rotated_image.save(str(Path(full_path).parents[2]) + "/multi_jackal_simulator/mu
 for i in range(1,desired_number_of_markers):
     image = Image.open(path_to_images + "board_%i.png"%i)
     image.save(str(Path(full_path).parents[2]) + "/gazebo_models/AruCo_Block_%i/materials/textures/board_%i.png"%(i+1,i+1))
+
     
 
