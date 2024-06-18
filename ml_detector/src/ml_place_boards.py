@@ -3,12 +3,14 @@ from PIL import Image
 from pathlib import Path
 import pathlib, os, time, glob
 
+#Places the generated ArUco markers on their corresponding block in Gazebo.
+
 full_path = pathlib.Path(__file__).parent.resolve()
 path_to_images = str(Path(full_path).parents[0]) + "/img/"
 filelist = glob.glob(os.path.join(path_to_images, "*"))
 for f in filelist:
     os.remove(f)
-# desired_number_of_markers = 12
+desired_number_of_static_markers = 12
 desired_number_of_markers = (len(os.listdir(str(Path(full_path).parents[2]) + "/gazebo_models"))-2)
 while len(os.listdir(path_to_images)) < desired_number_of_markers:
     print("waiting for all ArUco boards to be generated.", "There are ", len(os.listdir(path_to_images)), "boards, but ",desired_number_of_markers, " Gazebo blocks")

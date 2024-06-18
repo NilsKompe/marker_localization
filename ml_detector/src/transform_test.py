@@ -8,7 +8,7 @@ import tf2_geometry_msgs.tf2_geometry_msgs
 from scipy.spatial.transform import Rotation
 
 
-
+# not used for the actual SLAM project
 class Listener:
     def __init__(self):
         # self.start_time = time.time()

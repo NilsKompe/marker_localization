@@ -5,7 +5,7 @@ from ml_msgs.msg import MarkerDetection
 from geometry_msgs.msg import PointStamped, TransformStamped
 import tf2_geometry_msgs.tf2_geometry_msgs
 
-
+# Transforms the detected marker position from camera frame to jackal base frame and publishes the result. Not used for the actual SLAM project
 class Listener:
     def __init__(self):
         self.pub_base_point = rospy.Publisher("ml_landmarks/detected_markers_base_frame",MarkerDetection,queue_size=10)
@@ -21,11 +21,8 @@ class Listener:
                 point_stamped.header = msg.header
                 point_stamped.header.frame_id = "jackal0/front_camera_optical"
                 point_stamped.point = marker.pose.position
-                # self.tf_listener.waitForTransform("map", "jackal0/front_camera_optical", rospy.Time(0),rospy.Duration(4,0))
-                # marker.pose.position = self.tf_listener.transformPoint("map", point_stamped).point
                 transform = self.tfBuffer.lookup_transform("jackal0/base_link","jackal0/front_camera_optical",rospy.Time().now(),rospy.Duration(4,0))
                 marker.pose.position = tf2_geometry_msgs.do_transform_point(point_stamped,transform).point
-                # marker.pose.position = self.tf_listener.transformPoint("jackal0/base_link", point_stamped).point
                 msg.header.frame_id = "jackal0/base_link"
 
                 # rospy.loginfo("jackal0/front_camera_optical: (%.2f, %.2f. %.2f) -----> jackal0/base_link: (%.2f, %.2f, %.2f) at time %.2f",

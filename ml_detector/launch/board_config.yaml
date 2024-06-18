@@ -14,21 +14,12 @@ board_config:
   #  resolution when generating images
   # Sizes should reflect the real life marker sizes
   #  when detecting
-  # marker_size: 0.087 #values for creation
-  # marker_spacing: 0.017 
   marker_size: 0.133203125 #values for detection with board size 0.3m in gazebo
-  marker_spacing: 0.02578125 #can be calculated by measuring the pixels of each board part and calculating their percentage of the total image. Then the percentage has to be multiplied with the size in gazebo.
+  marker_spacing: 0.02578125 #can be calculated by measuring the pixels of each board part and calculating their percentage of the total image. Then the percentage has to be multiplied by the size in Gazebo.
                         #e.g. image has 768x768 px, each marker has 341 px and space between markers is 66 px: marker_size = 341/768 * 0.3, marker_spacing = 66/768 * 0.3
-
-  # marker_size: 0.094 #working
-  # marker_spacing: 0.1 #working
-
-  border_bits: 1
-
-  output_height: 768
+  border_bits: 1 
+  output_height: 768  
   output_width: 768
-  # output_height: 768
-  # output_width: 1024
 
 # Set board_id: -1 for these to be incrementally generated.
 # Boards should be organized by id (with -1's at tail of list)
@@ -36,8 +27,8 @@ board_config:
 #  errors if you attempt to generate past the
 #  dictionary limit.
 boards:
-  board_0:
-    id: 1 #starting with id 1 for the board on top of Jackal1. Id 0 is always Jackal0 that does not require a board
+  board_0: #has to be first board name
+    id: 1 #starting with id 1 for the board on top of Jackal1. Id 0 is always Jackal0, which does not require a board
     rows: 2
     cols: 2
     marker_ids: []
